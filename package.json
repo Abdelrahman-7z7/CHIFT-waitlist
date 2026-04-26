@@ -1,31 +1,29 @@
 {
-  "name": "chift-monorepo",
-  "version": "0.0.1",
+  "name": "chift-waitlist",
+  "version": "0.0.0",
   "private": true,
-  "description": "Production-grade TypeScript monorepo for CHIFT waitlist platform",
-  "packageManager": "pnpm@9.0.0",
-  "engines": {
-    "node": ">=20.0.0",
-    "pnpm": ">=9.0.0"
-  },
+  "type": "module",
+  "packageManager": "bun@1.3.8",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "turbo dev",
-    "build": "turbo build",
-    "lint": "turbo lint",
-    "typecheck": "turbo typecheck",
-    "test": "turbo test",
-    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
-    "ci": "pnpm install && pnpm lint && pnpm typecheck && pnpm test && pnpm build",
-    "prepare": "husky install"
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "start": "turbo run start",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "format": "prettier --write .",
+    "prepare": "husky"
   },
   "devDependencies": {
-    "@types/node": "^20.11.0",
-    "@commitlint/cli": "^18.4.4",
-    "@commitlint/config-conventional": "^18.4.4",
-    "husky": "^8.0.3",
-    "lint-staged": "^15.2.2",
-    "prettier": "^3.2.5",
-    "turbo": "^1.12.4",
-    "typescript": "^5.3.3"
+    "@commitlint/cli": "^19.0.0",
+    "@commitlint/config-conventional": "^19.0.0",
+    "husky": "^9.0.0",
+    "lint-staged": "^15.0.0",
+    "prettier": "^3.2.0",
+    "turbo": "latest",
+    "typescript": "latest"
   }
 }
