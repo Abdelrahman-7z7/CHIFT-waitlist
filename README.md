@@ -1,4 +1,4 @@
-# ⚡ Learning Approaches Monorepo
+# ⚡ CHIFT_WAITLIST Monorepo
 
 <p align="center">
   <img src="https://img.shields.io/badge/Bun-1.3.8-black?style=for-the-badge&logo=bun" alt="Bun Ready" />
