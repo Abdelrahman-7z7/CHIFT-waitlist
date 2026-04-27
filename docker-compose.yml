@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      target: base
+    container_name: learning-approaches-app
+    ports:
+      - "3000:3000"
+      - "8787:8787"
+      - "4321:4321"
+    environment:
+      - NODE_ENV=${NODE_ENV:-development}
+      - PORT=3000
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/apps/api/.wrangler
+    command: >
+      sh -c 'if [ "$$NODE_ENV" = "production" ]; then
+        bun install && bun run build && bun run start
+      else
+        bun install && bun run dev
+      fi'
