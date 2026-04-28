@@ -3,6 +3,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Bun-1.3.8-black?style=for-the-badge&logo=bun" alt="Bun Ready" />
   <img src="https://img.shields.io/badge/Turbo-2.9.6-blue?style=for-the-badge&logo=turborepo" alt="Turbo Powered" />
+  <img src="https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=nextdotjs" alt="Next.js" />
   <img src="https://img.shields.io/badge/Astro-4.5-orange?style=for-the-badge&logo=astro" alt="Astro" />
   <img src="https://img.shields.io/badge/Hono-Cloudflare-ff69b4?style=for-the-badge&logo=hono" alt="Hono API" />
   <img src="https://img.shields.io/badge/Drizzle-ORM-C5F74F?style=for-the-badge&logo=drizzle" alt="Drizzle ORM" />
@@ -19,9 +20,9 @@ Welcome to the **Learning Approaches** ecosystem. This is a high-performance, pr
 ```text
 .
 ├── 📱 apps/
-│   ├── 🌐 web        # Astro + Tailwind (Landing Page)
-│   ├── 📚 docs       # Astro + MDX (Documentation)
-│   └── ⚡ api        # Hono (Cloudflare Workers API)
+│   ├── 🌐 web        # Next.js 15 (Feature-based Architecture)
+│   ├── 📚 docs       # Astro + MDX (Port 3001)
+│   └── ⚡ api        # Hono + Cloudflare (Port 8787)
 ├── 📦 packages/
 │   ├── 🎨 ui         # Shared React Components + Tailwind
 │   ├── 🗄️ db         # Drizzle ORM + D1 Migrations
@@ -37,10 +38,11 @@ Welcome to the **Learning Approaches** ecosystem. This is a high-performance, pr
 
 - **Runtime**: [Bun](https://bun.sh/) — Fast all-in-one JavaScript runtime.
 - **Orchestration**: [Turborepo](https://turbo.build/) — High-performance build system for JS/TS monorepos.
-- **Frontend**: [Astro](https://astro.build/) — The web framework for content-driven websites.
+- **Frontend**: [Next.js](https://nextjs.org/) (Web) & [Astro](https://astro.build/) (Docs).
 - **API**: [Hono](https://hono.dev/) — Ultrafast web framework for Cloudflare Workers.
 - **Database**: [Drizzle ORM](https://orm.drizzle.team/) — Headless TypeScript ORM for SQLite/D1.
-- **Quality**: Husky + Lint-Staged + Commitlint + ESLint (Flat Config).
+- **Styling**: Tailwind CSS + [DaisyUI 5](https://daisyui.com/).
+- **Quality**: Husky + Lint-Staged + Commitlint + ESLint 9 (Flat Config).
 
 ---
 
@@ -60,12 +62,38 @@ bun install
 bun run dev
 ```
 
-_This starts all apps (Web, Docs, API) in parallel using Turbo._
+_This starts all apps in parallel using Turbo on the following ports:_
+
+| App          | Port   | URL                     |
+| :----------- | :----- | :---------------------- |
+| `@repo/web`  | `3000` | `http://localhost:3000` |
+| `@repo/docs` | `3001` | `http://localhost:3001` |
+| `@repo/api`  | `8787` | `http://localhost:8787` |
 
 ### 3. Build for Production
 
 ```bash
 bun run build
+```
+
+---
+
+## 📂 Web App Structure (`apps/web`)
+
+The web application follows a **Feature-based Architecture** inside the `src/` directory:
+
+```text
+src/
+├── app/                # Next.js App Router (Routes & Layouts)
+├── features/           # Modular Feature Folders
+│   └── [feature]/
+│       ├── components/ # UI components for this feature
+│       ├── screens/    # Page compositions
+│       ├── hooks/      # Feature-specific hooks
+│       └── schema/     # Data validation (Zod, etc.)
+├── components/         # Shared global UI components
+├── hooks/              # Shared global hooks
+└── globals.css         # Global tailwind styles
 ```
 
 ---
@@ -82,7 +110,7 @@ We are building this project phase by phase. Below is our current progress:
 
 ### 🟢 Phase 2: Apps & Core (Completed)
 
-- [x] Scaffolding `apps/web` (Astro)
+- [x] Scaffolding `apps/web` (Next.js 15 Refactor)
 - [x] Scaffolding `apps/docs` (MDX)
 - [x] Scaffolding `apps/api` (Hono + Wrangler)
 - [x] Shared `@repo/ui` component library
