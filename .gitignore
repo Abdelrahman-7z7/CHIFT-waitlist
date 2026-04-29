@@ -1,32 +1,26 @@
-# Dependencies
-node_modules/
+node_modules
+dist
+.turbo
+coverage
 
-# Build artifacts
-dist/
-build/
-out/
+# Next.js
 .next/
-.turbo/
-.wrangler/
-*.tsbuildinfo
-next-env.d.ts
+out/
+.wrangler
+wrangler.toml
 
-# Environment variables
+# env
 .env
 .env.local
 .env*.local
 .dev.vars
 
-# Debug logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
 
-# OS Files
-
+# OS
 .DS_Store
-Thumbs.db
 
-# Project specific
-planning/
-coverage/
+# planning
+planning
