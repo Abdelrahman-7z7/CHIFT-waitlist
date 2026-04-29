@@ -1,0 +1,25 @@
+{
+  "name": "@repo/docs",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev --port 3001",
+    "start": "astro dev --port 3001",
+    "build": "astro build",
+    "deploy:dry-run:staging": "astro build",
+    "deploy:dry-run:prod": "astro build",
+    "deploy:staging": "astro build",
+    "deploy:prod": "astro build",
+    "preview": "astro preview",
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "astro": "^4.5.0",
+    "@astrojs/mdx": "^2.1.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@repo/config": "workspace:*"
+  }
+}
