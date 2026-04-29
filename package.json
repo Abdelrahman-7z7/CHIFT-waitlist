@@ -13,10 +13,14 @@
     "dev": "turbo run dev",
     "start": "turbo run start",
     "lint": "turbo run lint",
-    "lint:fix": "eslint --fix .",
+    "lint:fix": "bunx eslint --fix .",
     "typecheck": "turbo run typecheck",
     "format": "prettier --write .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "deploy:dry-run:staging": "turbo run deploy:dry-run:staging",
+    "deploy:dry-run:prod": "turbo run deploy:dry-run:prod",
+    "deploy:staging": "turbo run deploy:staging",
+    "deploy:prod": "turbo run deploy:prod"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.0.0",

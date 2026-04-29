@@ -19,6 +19,18 @@
       "dependsOn": ["^build"],
       "cache": false,
       "persistent": true
+    },
+    "deploy:dry-run:staging": {
+      "dependsOn": ["build"]
+    },
+    "deploy:dry-run:prod": {
+      "dependsOn": ["build"]
+    },
+    "deploy:staging": {
+      "dependsOn": ["build"]
+    },
+    "deploy:prod": {
+      "dependsOn": ["build"]
     }
   }
 }
