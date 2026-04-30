@@ -4,6 +4,12 @@ import unusedImports from 'eslint-plugin-unused-imports';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(js.configs.recommended, ...tseslint.configs.recommended, {
+  languageOptions: {
+    globals: {
+      process: 'readonly',
+      console: 'readonly',
+    },
+  },
   plugins: {
     'unused-imports': unusedImports,
     import: importPlugin,

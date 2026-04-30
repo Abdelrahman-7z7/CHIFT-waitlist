@@ -8,6 +8,8 @@ coverage
 out/
 .wrangler
 wrangler.toml
+.vercel
+.next
 
 # env
 .env

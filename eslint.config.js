@@ -8,6 +8,7 @@ export default [
       "**/dist/**",
       "**/.turbo/**",
       "**/.next/**",
+      "**/.vercel/**",
       "**/.wrangler/**",
       "**/out/**",
       "**/public/**",
