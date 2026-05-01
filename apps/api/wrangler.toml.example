@@ -1,0 +1,29 @@
+name = "chift-waitlist-example"
+main = "src/index.ts"
+compatibility_date = "2026-04-29"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "example_db"
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "../../packages/db/migrations"
+
+[vars]
+ENVIRONMENT = "dev"
+
+[env.staging]
+  [[env.staging.d1_databases]]
+  binding = "DB"
+  database_name = "staging_db"
+  database_id = "00000000-0000-0000-0000-000000000000"
+  migrations_dir = "../../packages/db/migrations"
+
+  [env.staging.vars]
+  ENVIRONMENT = "staging"
+  POLICY_AUD= "placeholder"
+  CF_ACCESS_DOMAIN = "https://example.cloudflareaccess.com"
+  INTERNAL_SECRET = "placeholder"
+
+[env.production]
+  [env.production.vars]
+  ENVIRONMENT = "production"

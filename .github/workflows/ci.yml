@@ -30,6 +30,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-turbo-
 
+      - name: Prepare Wrangler Config
+        run: cp apps/api/wrangler.toml.example apps/api/wrangler.toml
+
       - name: Lint
         run: bun run lint
 
