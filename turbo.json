@@ -35,6 +35,9 @@
     },
     "deploy:prod": {
       "dependsOn": ["build"]
+    },
+    "generate": {
+      "cache": false
     }
   }
 }

@@ -4,7 +4,7 @@
   "private": true,
   "main": "src/index.ts",
   "scripts": {
-    "generate": "drizzle-kit generate",
+    "generate": "bunx drizzle-kit generate",
     "migrate": "wrangler d1 migrations apply DB --local",
     "typecheck": "tsc --noEmit"
   },
@@ -12,9 +12,9 @@
     "drizzle-orm": "^0.45.2"
   },
   "devDependencies": {
-    "drizzle-kit": "^0.20.14",
-    "typescript": "^5.0.0",
     "@cloudflare/workers-types": "^4.20240405.0",
-    "@repo/config": "workspace:*"
+    "@repo/config": "workspace:*",
+    "drizzle-kit": "^0.31.10",
+    "typescript": "^5.0.0"
   }
 }
