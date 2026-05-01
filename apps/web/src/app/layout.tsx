@@ -1,3 +1,4 @@
+export const runtime = "edge";
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "../globals.css";
