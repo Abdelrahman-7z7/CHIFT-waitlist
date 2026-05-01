@@ -5,12 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "next dev -p 3000",
+    "dev:staging": "BACKEND_API_URL=https://api-staging.chift.dev next dev -p 3000",
     "start": "next start",
     "build": "next build",
     "deploy:dry-run:staging": "next build",
     "deploy:dry-run:prod": "next build",
-    "deploy:staging": "next-on-pages && wrangler pages deploy .vercel/output --project-name chift-web --branch staging",
-    "deploy:prod": "next-on-pages && wrangler pages deploy .vercel/output --project-name chift-web --branch main",
+    "deploy:staging": "next-on-pages && wrangler pages deploy .vercel/output/static --project-name chift-web --branch staging",
+    "deploy:prod": "next-on-pages && wrangler pages deploy .vercel/output/static --project-name chift-web --branch main",
     "lint": "next lint",
     "typecheck": "tsc --noEmit"
   },
