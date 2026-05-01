@@ -24,5 +24,8 @@ next-env.d.ts
 # OS
 .DS_Store
 
+#typescript build info
+*.tsbuildinfo
+
 # planning
 planning
