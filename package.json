@@ -11,6 +11,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
+    "dev:staging": "turbo run dev:staging",
     "start": "turbo run start",
     "lint": "turbo run lint",
     "lint:fix": "bunx eslint --fix .",
@@ -20,7 +21,8 @@
     "deploy:dry-run:staging": "turbo run deploy:dry-run:staging",
     "deploy:dry-run:prod": "turbo run deploy:dry-run:prod",
     "deploy:staging": "turbo run deploy:staging",
-    "deploy:prod": "turbo run deploy:prod"
+    "deploy:prod": "turbo run deploy:prod",
+    "db:generate": "turbo run generate --filter @repo/db"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.0.0",
