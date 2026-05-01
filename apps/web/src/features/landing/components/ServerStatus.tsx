@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
 
+interface HealthResponse {
+  status: string;
+}
+
 export const ServerStatus = () => {
   const [status, setStatus] = useState("pending");
   useEffect(() => {
     fetch("/api/health")
-      .then((res) => res.json())
-      .then((data) => setStatus(data.status));
+      .then((res) => res.json() as Promise<HealthResponse>)
+      .then((data) => setStatus(data.status))
+      .catch(() => setStatus("error"));
   }, []);
   return (
     <div>
