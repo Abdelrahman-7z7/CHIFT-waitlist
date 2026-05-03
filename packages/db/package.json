@@ -5,15 +5,19 @@
   "main": "src/index.ts",
   "scripts": {
     "generate": "bunx drizzle-kit generate",
-    "migrate": "wrangler d1 migrations apply DB --local",
+    "migrate:local": "wrangler d1 migrations apply dojo_local_db --local --cwd ../../apps/api",
+    "migrate:staging": "wrangler d1 migrations apply dojo_staging_db --remote --env staging --cwd ../../apps/api",
+    "migrate:prod": "wrangler d1 migrations apply dojo_prod_db --remote --env production --cwd ../../apps/api",
+    "test": "bun test",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "drizzle-orm": "^0.45.2"
+    "drizzle-orm": "0.45.2"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20240405.0",
+    "@cloudflare/workers-types": "^4.20260502.1",
     "@repo/config": "workspace:*",
+    "bun-types": "latest",
     "drizzle-kit": "^0.31.10",
     "typescript": "^5.0.0"
   }

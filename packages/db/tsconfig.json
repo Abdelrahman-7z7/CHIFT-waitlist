@@ -1,8 +1,7 @@
 {
   "extends": "../../packages/config/tsconfig.json",
   "compilerOptions": {
-    "moduleResolution": "node",
-    "types": ["@cloudflare/workers-types"]
+    "types": ["@cloudflare/workers-types", "bun-types"]
   },
-  "include": ["src/**/*", "drizzle.config.ts"]
+  "include": ["src/**/*", "tests/**/*", "drizzle.config.ts"]
 }

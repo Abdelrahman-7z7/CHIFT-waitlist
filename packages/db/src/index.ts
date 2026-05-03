@@ -3,7 +3,10 @@ import { drizzle } from "drizzle-orm/d1";
 import * as schema from "./schema";
 
 export * from "./schema";
+export * from "./queries";
 
-export function createDb(d1: D1Database) {
-  return drizzle(d1, { schema });
+export function createDb(binding: D1Database) {
+  return drizzle(binding, { schema });
 }
+
+export type DrizzleDb = ReturnType<typeof createDb>;

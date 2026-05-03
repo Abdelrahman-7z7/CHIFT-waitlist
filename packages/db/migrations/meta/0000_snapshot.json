@@ -1,7 +1,7 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "1b89b936-8d77-48d1-9570-740671d57588",
+  "id": "bf6d8262-7707-4870-9e51-f3a0cebb00a9",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "subscribers": {
@@ -27,7 +27,7 @@
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false,
-          "default": "'\"2026-05-01T19:55:11.298Z\"'"
+          "default": "(unixepoch())"
         },
         "updated_at": {
           "name": "updated_at",
@@ -35,7 +35,7 @@
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false,
-          "default": "'\"2026-05-01T19:55:11.298Z\"'"
+          "default": "(unixepoch())"
         },
         "traffic_source": {
           "name": "traffic_source",
