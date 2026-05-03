@@ -38,6 +38,18 @@
     },
     "generate": {
       "cache": false
+    },
+    "migrate:local": {
+      "cache": false
+    },
+    "migrate:staging": {
+      "cache": false
+    },
+    "migrate:prod": {
+      "cache": false
+    },
+    "test": {
+      "dependsOn": ["^build"]
     }
   }
 }

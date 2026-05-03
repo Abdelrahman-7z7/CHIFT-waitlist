@@ -1,0 +1,7 @@
+[test]
+preload = []
+# You can add setup files here if needed
+# preload = ["./scripts/test-setup.ts"]
+
+[run]
+# This ensures bun run works smoothly in the monorepo
