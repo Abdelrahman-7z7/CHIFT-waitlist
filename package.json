@@ -28,6 +28,7 @@
     "db:migrate:local": "turbo run migrate:local --filter @repo/db",
     "db:migrate:staging": "turbo run migrate:staging --filter @repo/db",
     "db:migrate:prod": "turbo run migrate:prod --filter @repo/db",
+    "db:clean:local": "wrangler d1 execute dojo_local_db --local --command \"DELETE FROM subscribers;\" --cwd apps/api",
     "test": "turbo run test",
     "test:db": "turbo run test --filter @repo/db"
   },
