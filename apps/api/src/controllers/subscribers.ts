@@ -46,11 +46,12 @@ export const signupSubscriber = async (c: Context) => {
 
   // 4. Send Email
   if (resend) {
-    const { subject, html } = getVerificationEmail(
-      `https://chift.app/verify?token=${token}`,
-    ); // Update with real URL
+    const frontendUrl = c.env.FRONTEND_URL || "http://localhost:3000";
+    const verificationUrl = `${frontendUrl.replace(/\/$/, "")}/verify?token=${token}`;
+
+    const { subject, html } = getVerificationEmail(verificationUrl);
     await resend.emails.send({
-      from: "CHIFT <onboarding@resend.dev>", // Update with verified domain
+      from: c.env.EMAIL_FROM || "CHIFT <onboarding@resend.dev>",
       to: [email],
       subject,
       html,
@@ -95,7 +96,7 @@ export const verifySubscriber = async (c: Context) => {
   if (resend) {
     const { subject, html } = getWelcomeEmail();
     await resend.emails.send({
-      from: "CHIFT <onboarding@resend.dev>",
+      from: c.env.EMAIL_FROM || "CHIFT <onboarding@resend.dev>",
       to: [subscriber.email],
       subject,
       html,

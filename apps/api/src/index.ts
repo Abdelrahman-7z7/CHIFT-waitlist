@@ -13,6 +13,8 @@ import subscribersV1 from "./routes/v1/subscribers";
 
 type Bindings = {
   ENVIRONMENT: string;
+  FRONTEND_URL: string;
+  EMAIL_FROM: string;
   DB: D1Database;
   SENTRY_DSN?: string;
   RESEND_API_KEY?: string;
