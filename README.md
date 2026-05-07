@@ -140,15 +140,57 @@ src/
 
 ### 🟡 Phase 5: Frontend Integration (Next)
 
-- [ ] Connect Next.js Waitlist form to API
-- [ ] UI feedback for signup (toasts, loading states)
-- [ ] Landing page polish & animations
+- [x] Connect Next.js Waitlist form to API
+- [x] UI feedback for signup (toasts, loading states)
+- [x] Landing page polish & animations
 
-### ⚪ Phase 6: Production Hardening
+### 🟢 Phase 6: Unit & Integration Testing (Completed)
+
+- [x] Backend API testing (Bun Test + In-memory D1)
+- [x] Frontend Component testing (Happy DOM + Testing Library)
+- [x] Monorepo QA orchestration (Turbo test)
+
+### ⚪ Phase 7: Production Hardening
 
 - [ ] End-to-End Testing (Playwright)
 - [ ] Analytics integration
 - [ ] Production deployment automation
+
+---
+
+## 🧪 Testing
+
+The project uses [Bun Test](https://bun.sh/docs/cli/test) for lightning-fast testing across the monorepo.
+
+### Run all tests
+
+```bash
+bun run test
+```
+
+### Run Full QA Suite
+
+This runs linting, typechecking, and tests across all packages in parallel:
+
+```bash
+bun run qa
+```
+
+### Backend Testing (`apps/api`)
+
+Tests use an in-memory SQLite database to simulate Cloudflare D1 and mock external services like Resend.
+
+```bash
+cd apps/api && bun test
+```
+
+### Frontend Testing (`apps/web`)
+
+Tests use `happy-dom` and `@testing-library/react`. Framer Motion animations are automatically disabled in tests for speed and reliability.
+
+```bash
+cd apps/web && bun test
+```
 
 ---
 
@@ -166,13 +208,15 @@ _Supports `NODE_ENV=development` for hot-reloading inside Docker!_
 
 ## 📜 Scripts Reference
 
-| Command               | Description                                |
-| :-------------------- | :----------------------------------------- |
-| `bun run dev`         | Start all applications in development mode |
-| `bun run build`       | Build all packages and applications        |
-| `bun run lint`        | Run ESLint across the entire monorepo      |
-| `bun run typecheck`   | Verify TypeScript types everywhere         |
-| `bun run lint-staged` | Manually trigger staged file checks        |
+| Command             | Description                                      |
+| :------------------ | :----------------------------------------------- |
+| `bun run dev`       | Start all applications in development mode       |
+| `bun run qa`        | **Full Quality Check** (Lint + Typecheck + Test) |
+| `bun run test`      | Run all unit/integration tests in parallel       |
+| `bun run build`     | Build all packages and applications              |
+| `bun run lint`      | Run ESLint across the entire monorepo            |
+| `bun run typecheck` | Verify TypeScript types everywhere               |
+| `bun run format`    | Auto-format the entire codebase with Prettier    |
 
 ---
 
